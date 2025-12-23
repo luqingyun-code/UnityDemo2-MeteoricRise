@@ -1,0 +1,79 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+using System;
+
+public class BattleVisual : MonoBehaviour
+{
+    [SerializeField] private Slider healthBar;
+    [SerializeField] private TextMeshProUGUI levelText;
+    [SerializeField] private GameObject fireballPrefab;
+    private int currHealth;
+    private int maxHealth;
+    private int level;
+
+    private Animator anim;
+
+    public event Action OnAttackEvent;
+
+    private const string LEVEL_ABB = "Lvl: ";
+    private const string IS_ATTACK_PARAM = "IsAttack";
+    private const string IS_DEAD_PARAM = "IsDead";
+    private const string IS_HIT_PARAM = "IsHit";
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        anim = gameObject.GetComponent<Animator>();
+        SetStartingValues(10,10,5);
+        PlayAttackAnimation();
+    }
+
+    public void SetStartingValues(int currHealth, int maxHealth, int level)
+    {
+        this.currHealth = currHealth;
+        this.maxHealth = maxHealth;
+        this.level = level;
+        levelText.text = LEVEL_ABB + this.level.ToString();
+        UpdateHealthBar();
+    }
+
+    public void ChangeHealth(int currHealth)
+    {
+        this.currHealth = currHealth;
+        //if健康值为0，播放死亡动画，摧毁战斗视觉
+        if(currHealth<=0)
+        {
+            PlayDeathAnimation();
+            Destroy(gameObject,1f);
+        }
+        UpdateHealthBar();
+    }
+
+    public void UpdateHealthBar()
+    {
+        healthBar.maxValue = maxHealth;
+        healthBar.value = currHealth;
+    }
+    
+    //播放动画的函数
+    public void PlayAttackAnimation()
+    {
+        anim.SetTrigger(IS_ATTACK_PARAM);
+    }
+    public void AnimationAttackEvent()
+    {
+        Debug.Log("AnimationAttackEvent CALLED");
+        OnAttackEvent?.Invoke();
+    }
+    public void PlayHitAnimation()
+    {
+        anim.SetTrigger(IS_HIT_PARAM);
+    }
+    public void PlayDeathAnimation()
+    {
+        anim.SetTrigger(IS_DEAD_PARAM);
+    }
+}
