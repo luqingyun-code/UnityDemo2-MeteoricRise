@@ -17,5 +17,8 @@ MonoBehaviour:
   BaseHealth: 10
   BaseStrength: 5
   BaseInitiative: 5
-  MemberBattleVisualPrefab: {fileID: 0}
+  AttackDuration: 0.5
+  IsMelee: 1
+  MemberBattleVisualPrefab: {fileID: 5955859587323016777, guid: 34c6773a20aa7a44ba8e55b4cb307524,
+    type: 3}
   MemberOverworldVisualPrefab: {fileID: 0}

@@ -10,13 +10,25 @@ public class PartyManager : MonoBehaviour
 
 
     [SerializeField] private PartyMemberInfo defaultPartyMember;
+    private Vector3 playerPosition;
 
+    public static GameObject instance;
     private void Awake()
     {
-        AddMemberToPartyByName(defaultPartyMember.MemberName);
+        if(instance!=null)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            instance = this.gameObject;
+            AddMemberToPartyByName(defaultPartyMember.MemberName);
+            AddMemberToPartyByName(defaultPartyMember.MemberName);
+        }
+        DontDestroyOnLoad(gameObject);
     }
 
-    //通过名字给函数添加成员
+    //通过名字给小队成员列表添加成员
     public void AddMemberToPartyByName(string memberName)
     {
         for (int i = 0; i < allMember.Length; i++)
@@ -32,11 +44,42 @@ public class PartyManager : MonoBehaviour
                 newPartyMember.Initiative = allMember[i].BaseInitiative;
                 newPartyMember.MemberBattleVisualPrefab = allMember[i].MemberBattleVisualPrefab;
                 newPartyMember.MemberOverworldVisualPrefab = allMember[i].MemberOverworldVisualPrefab;
-
+                newPartyMember.AttackDuration = allMember[i].AttackDuration;
+                newPartyMember.IsMelee = allMember[i].IsMelee;
                 currentParty.Add(newPartyMember);
             }
         }
     }
+
+    public List<PartyMember> GetCurrentParty()
+    {
+        List<PartyMember> aliveParty = new List<PartyMember>();
+        aliveParty = currentParty;
+        for (int i = 0; i < aliveParty.Count; i++)
+        {
+            if(aliveParty[i].CurrHealth<=0)
+            {
+                aliveParty.RemoveAt(i);
+            }
+        }
+        return aliveParty;
+    }
+
+
+    public void SaveHealth(int partyMember, int health)
+    {
+        currentParty[partyMember].CurrHealth = health;
+    }
+
+    public void SetPosition(Vector3 position)
+    {
+        playerPosition = position;
+    }  
+
+    public Vector3 GetPosition()
+    {
+        return playerPosition;
+    }    
 }
 
 
@@ -54,6 +97,11 @@ public class PartyMember
     public int CurrExp;
     //最大经验值
     public int MaxExp;
+
+    public float AttackDuration;
+
+    public bool IsMelee;
+
     //战斗可视
     public GameObject MemberBattleVisualPrefab;
     //过场可视

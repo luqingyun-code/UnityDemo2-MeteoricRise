@@ -9,14 +9,13 @@ public class BattleVisual : MonoBehaviour
 {
     [SerializeField] private Slider healthBar;
     [SerializeField] private TextMeshProUGUI levelText;
-    [SerializeField] private GameObject fireballPrefab;
     private int currHealth;
     private int maxHealth;
     private int level;
 
     private Animator anim;
-
     public event Action OnAttackEvent;
+    private Transform currentTarget;
 
     private const string LEVEL_ABB = "Lvl: ";
     private const string IS_ATTACK_PARAM = "IsAttack";
@@ -24,11 +23,11 @@ public class BattleVisual : MonoBehaviour
     private const string IS_HIT_PARAM = "IsHit";
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         anim = gameObject.GetComponent<Animator>();
-        SetStartingValues(10,10,5);
-        PlayAttackAnimation();
+        //SetStartingValues(10,10,5);
+        //PlayAttackAnimation();
     }
 
     public void SetStartingValues(int currHealth, int maxHealth, int level)
@@ -65,7 +64,7 @@ public class BattleVisual : MonoBehaviour
     }
     public void AnimationAttackEvent()
     {
-        Debug.Log("AnimationAttackEvent CALLED");
+        //Debug.Log("AnimationAttackEvent CALLED");
         OnAttackEvent?.Invoke();
     }
     public void PlayHitAnimation()
@@ -75,5 +74,15 @@ public class BattleVisual : MonoBehaviour
     public void PlayDeathAnimation()
     {
         anim.SetTrigger(IS_DEAD_PARAM);
+    }
+
+    public void SetAttackTarget(Transform target)
+    {
+        currentTarget = target;
+    }
+
+    public Transform GetAttackTarget()
+    {
+        return currentTarget;
     }
 }

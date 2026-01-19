@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     private bool movingInGrass;
     private float stepTimer;
     private int stepsToEncounter;
+    private PartyManager partyManager;
     
 
     
@@ -42,6 +43,11 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
+        partyManager = GameObject.FindFirstObjectByType<PartyManager>();
+        if(partyManager.GetPosition() != Vector3.zero)
+        {
+            transform.position = partyManager.GetPosition();
+        }
     }
 
     // Update is called once per frame
@@ -91,6 +97,7 @@ public class PlayerController : MonoBehaviour
                 //TODO：场景转换
                 if(stepsInGrass>=stepsToEncounter)
                 {
+                    partyManager.SetPosition(transform.position);
                     SceneManager.LoadScene(BATTLE_SCENE);
                 }
             }

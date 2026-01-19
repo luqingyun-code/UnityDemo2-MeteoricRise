@@ -18,6 +18,10 @@ public class PartyMemberInfo : ScriptableObject
     //基础速度（崩铁里的速度）
     public int BaseInitiative;
 
+    public float AttackDuration;
+
+    public bool IsMelee;
+
     //公共游戏对象变量
     //战斗视觉预制体：在战斗中显示的内容
     public GameObject MemberBattleVisualPrefab;
