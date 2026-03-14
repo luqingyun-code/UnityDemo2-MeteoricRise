@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e83bc0eb2b8c6a4b9cd7b7a1c326c9d, type: 3}
+  m_Name: Wasp
+  m_EditorClassIdentifier: 
+  EnemyName: Wasp
+  BaseHealth: 1
+  BaseStrength: 1
+  BaseInitiative: 1
+  AttackDuration: 3
+  SkillData: {fileID: 11400000, guid: 0f939768760f31b4fb14f5152e3edea2, type: 2}
+  EnemyVisualPrefab: {fileID: 8254912736404714302, guid: c66be89cda1c44a4bae40098e52956c2,
+    type: 3}

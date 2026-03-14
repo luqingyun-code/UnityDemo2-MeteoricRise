@@ -9,7 +9,11 @@ public class PartyManager : MonoBehaviour
     [SerializeField] private List<PartyMember> currentParty;
 
 
-    [SerializeField] private PartyMemberInfo defaultPartyMember;
+    
+    //[SerializeField] private PartyMemberInfo defaultPartyMember;
+    [SerializeField] private PartyMemberInfo PartyMember1;
+    [SerializeField] private PartyMemberInfo PartyMember2;
+    [SerializeField] private PartyMemberInfo partyMember3;
     private Vector3 playerPosition;
 
     public static GameObject instance;
@@ -22,8 +26,10 @@ public class PartyManager : MonoBehaviour
         else
         {
             instance = this.gameObject;
-            AddMemberToPartyByName(defaultPartyMember.MemberName);
-            AddMemberToPartyByName(defaultPartyMember.MemberName);
+            AddMemberToPartyByName(PartyMember1.MemberName);
+            AddMemberToPartyByName(PartyMember2.MemberName);
+            AddMemberToPartyByName(partyMember3.MemberName);
+            //AddMemberToPartyByName(defaultPartyMember.MemberName);
         }
         DontDestroyOnLoad(gameObject);
     }
@@ -35,6 +41,7 @@ public class PartyManager : MonoBehaviour
         {
             if(allMember[i].MemberName == memberName)
             {
+                //Debug.Log("add");
                 PartyMember newPartyMember = new PartyMember();
                 newPartyMember.MemberName = allMember[i].MemberName;
                 newPartyMember.Level = allMember[i].StartingLevel;
@@ -45,7 +52,10 @@ public class PartyManager : MonoBehaviour
                 newPartyMember.MemberBattleVisualPrefab = allMember[i].MemberBattleVisualPrefab;
                 newPartyMember.MemberOverworldVisualPrefab = allMember[i].MemberOverworldVisualPrefab;
                 newPartyMember.AttackDuration = allMember[i].AttackDuration;
-                newPartyMember.IsMelee = allMember[i].IsMelee;
+                //newPartyMember.IsMelee = allMember[i].IsMelee;
+                newPartyMember.SkillData = allMember[i].SkillData;
+                newPartyMember.NormalAttack = allMember[i].NormalAttack;
+                newPartyMember.BattleSkill = allMember[i].BattleSkill;
                 currentParty.Add(newPartyMember);
             }
         }
@@ -100,7 +110,10 @@ public class PartyMember
 
     public float AttackDuration;
 
-    public bool IsMelee;
+    //public bool IsMelee;
+    public Skill NormalAttack;
+    public Skill BattleSkill;
+    public Skill SkillData;
 
     //战斗可视
     public GameObject MemberBattleVisualPrefab;

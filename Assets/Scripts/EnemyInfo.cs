@@ -12,6 +12,7 @@ public class EnemyInfo : ScriptableObject
     public int BaseStrength;
     public int BaseInitiative;
     public float AttackDuration;
-    public bool IsMelee;
+    //public bool IsMelee;
+    public Skill SkillData;
     public GameObject EnemyVisualPrefab;//战斗场景中
 }

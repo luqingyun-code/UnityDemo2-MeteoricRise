@@ -20,7 +20,10 @@ public class PartyMemberInfo : ScriptableObject
 
     public float AttackDuration;
 
-    public bool IsMelee;
+    //public bool IsMelee;
+    public Skill SkillData;
+    public Skill NormalAttack;
+    public Skill BattleSkill;
 
     //公共游戏对象变量
     //战斗视觉预制体：在战斗中显示的内容

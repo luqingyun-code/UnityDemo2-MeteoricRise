@@ -5,17 +5,25 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 
+
+
+
+
 public class BattleVisual : MonoBehaviour
 {
     [SerializeField] private Slider healthBar;
     [SerializeField] private TextMeshProUGUI levelText;
+    [SerializeField] public GameObject healthEffectPrefab;
+    [SerializeField] public GameObject buffEffectPrefab;
+    [SerializeField] public GameObject debuffEffectPrefab;
+    [SerializeField] public GameObject dizzyEffectPrefab;
     private int currHealth;
     private int maxHealth;
     private int level;
 
     private Animator anim;
     public event Action OnAttackEvent;
-    private Transform currentTarget;
+    private List<Transform> currentTargets = new List<Transform>();
 
     private const string LEVEL_ABB = "Lvl: ";
     private const string IS_ATTACK_PARAM = "IsAttack";
@@ -76,13 +84,18 @@ public class BattleVisual : MonoBehaviour
         anim.SetTrigger(IS_DEAD_PARAM);
     }
 
-    public void SetAttackTarget(Transform target)
+    public void SetAttackTargets(List<BattleEntities> targets)
     {
-        currentTarget = target;
+        currentTargets.Clear();
+
+        foreach(var t in targets)
+        {
+            currentTargets.Add(t.BattleVisual.transform);
+        }
     }
 
-    public Transform GetAttackTarget()
+    public List<Transform> GetAttackTargets()
     {
-        return currentTarget;
+        return currentTargets;
     }
 }

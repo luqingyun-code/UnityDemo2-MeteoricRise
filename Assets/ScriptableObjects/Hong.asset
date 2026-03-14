@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e83bc0eb2b8c6a4b9cd7b7a1c326c9d, type: 3}
   m_Name: Hong
   m_EditorClassIdentifier: 
-  EnemyName: Hong
-  BaseHealth: 1
-  BaseStrength: 1
+  EnemyName: "\u5410\u5410\u706B\u7403"
+  BaseHealth: 10
+  BaseStrength: 10
   BaseInitiative: 1
   AttackDuration: 3
-  IsMelee: 0
+  SkillData: {fileID: 11400000, guid: 976bc1b17d6fd9741859d69385c7fb4c, type: 2}
   EnemyVisualPrefab: {fileID: 5635417539770035445, guid: d497d1f8b78438c4c8d2de4940b204c8,
     type: 3}

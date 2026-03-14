@@ -55,7 +55,8 @@ public class EnemyManager : MonoBehaviour
                 newEnemy.Initiative = Mathf.RoundToInt(allEnemies[i].BaseInitiative + (allEnemies[i].BaseInitiative * levelModifier));
                 newEnemy.EnemyVisualPrefab = allEnemies[i].EnemyVisualPrefab;
                 newEnemy.AttackDuration = allEnemies[i].AttackDuration;
-                newEnemy.IsMelee = allEnemies[i].IsMelee;
+                //newEnemy.IsMelee = allEnemies[i].IsMelee;
+                newEnemy.SkillData = allEnemies[i].SkillData;
                 currentEnenies.Add(newEnemy);
             }
         }
@@ -76,7 +77,8 @@ public class Enemy
     public int CurrHealth;
     public int Initiative;
     public int Strength;
-    public bool IsMelee;
+    //public bool IsMelee;
+    public Skill SkillData;
     public float AttackDuration;
     public GameObject EnemyVisualPrefab;
 }

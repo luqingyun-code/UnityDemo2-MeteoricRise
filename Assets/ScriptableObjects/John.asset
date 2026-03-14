@@ -12,13 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baeb5b11f0611b048919247e6241656b, type: 3}
   m_Name: John
   m_EditorClassIdentifier: 
-  MemberName: John
+  MemberName: "\u6325\u6325\u5B9D\u5251"
   StartingLevel: 1
   BaseHealth: 10
   BaseStrength: 5
   BaseInitiative: 5
   AttackDuration: 0.5
-  IsMelee: 1
+  SkillData: {fileID: 11400000, guid: 2cfe3e805a2017b4795615c5a7aebbab, type: 2}
+  NormalAttack: {fileID: 11400000, guid: 4e3a93c0cc986fa40934d5fba1d021db, type: 2}
+  BattleSkill: {fileID: 11400000, guid: 2cfe3e805a2017b4795615c5a7aebbab, type: 2}
   MemberBattleVisualPrefab: {fileID: 5955859587323016777, guid: 34c6773a20aa7a44ba8e55b4cb307524,
     type: 3}
   MemberOverworldVisualPrefab: {fileID: 0}

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd54650132255214c9ffd01123f3ed60, type: 3}
+  m_Name: JohnBattleSkill
+  m_EditorClassIdentifier: 
+  SkillName: 
+  Power: 5
+  AttackType: 0
+  TargetCamp: 1
+  TargetMode: 1
+  EffectType: 0
+  skillSpType: 1
+  skillPointCost: 1
+  SkillEffectPrefab: {fileID: 575319445162951685, guid: b7e5061752aa1fa48b86d205d34abf7f,
+    type: 3}
+  effectLifetime: 2
