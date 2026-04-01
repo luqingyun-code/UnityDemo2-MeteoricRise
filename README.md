@@ -140,9 +140,9 @@ public enum SkillSpType      { NormalAttack, BattleSkill } // 技能分类
 
 ## 开发日志
 
-完整的开发记录见 [2.5D回合制demoReadMe.md](./2.5D回合制demoReadMe.md)
+ [2.5D回合制demoReadMe.md](./2.5D回合制demoReadMe.md)  是已废弃的开发记录，可能后面会更新为一些开发记录笔记。
 
 ---
 
-**开发时间**：2024 年 11 月 - 2025 年 3 月
+**开发时间**：2025 年 11 月 - 2026 年 3 月
 **项目性质**：个人原创项目，用于求职游戏客户端开发实习岗位
