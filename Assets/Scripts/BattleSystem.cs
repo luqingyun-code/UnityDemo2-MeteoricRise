@@ -318,7 +318,7 @@ public class BattleSystem : MonoBehaviour
         {
             currentPlayer++;
         }
-
+        //所有角色都选择完毕，开始战斗
         if(currentPlayer >= playerBattlers.Count)
         {
             StartCoroutine(BattleRoutine());
@@ -329,7 +329,11 @@ public class BattleSystem : MonoBehaviour
         battleMenu.SetActive(true);
     }
 
-    //而且这个函数是玩家点击普攻/战技后触发，也就是onclick事件调用的。
+
+    //点击按钮模块开始
+    //ShowBattleMenu后有两个点击界面，一个是选择战技/攻击/逃跑，下一级是选择目标。
+    
+    //以下函数是玩家点击普攻/战技后触发，也就是onclick事件调用的。
 
     //普攻
     public void OnNormalAttackButton()
